@@ -605,7 +605,7 @@ const TargetCursor = ({
 // ================================
 
 /**
- * Komponen monitor/layar dengan konten kode Kotlin
+ * Komponen monitor/layar dengan konten kode Flutter/Dart
  */
 const CodeMonitorIllustration = memo(() => (
   <div className="absolute top-16 left-16 w-72 h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl border border-gray-600/50 shadow-2xl transform rotate-6 hover:rotate-3 transition-all duration-500 hover:scale-105 animate-float">
@@ -616,42 +616,49 @@ const CodeMonitorIllustration = memo(() => (
         <div className="w-3 h-3 bg-white rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
         <div className="w-3 h-3 bg-gray-300 rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
       </div>
-      <div className="text-xs text-gray-400 animate-pulse">MainActivity.kt</div>
+      <div className="text-xs text-gray-400 animate-pulse">main.dart</div>
     </div>
     
-    {/* Konten kode Kotlin */}
-    <div className="p-4 space-y-2 font-mono text-xs">
+    {/* Konten kode Flutter/Dart */}
+    <div className="p-4 space-y-1 font-mono text-xs">
       <div className="flex items-center space-x-1">
-        <span className="text-white">class</span>
-        <span className="text-gray-200">MainActivity</span>
-        <span className="text-gray-300">:</span>
-        <span className="text-gray-100">AppCompatActivity</span>
-        <span className="text-gray-300">()</span>
-        <span className="text-gray-300">&nbsp;{'{'}</span>
+        <span className="text-white">void</span>
+        <span className="text-gray-200">main</span>
+        <span className="text-gray-300">{'() {'}</span>
       </div>
-      <div className="pl-2 space-y-1">
+      <div className="pl-4 flex items-center space-x-1">
+        <span className="text-gray-200">runApp</span>
+        <span className="text-gray-300">(</span>
+        <span className="text-white">const</span>
+        <span className="text-gray-100">MyApp</span>
+        <span className="text-gray-300">());</span>
+      </div>
+      <div className="text-gray-300">{'}'}</div>
+      <div className="flex items-center space-x-1 pt-1">
+        <span className="text-white">class</span>
+        <span className="text-gray-200">MyApp</span>
+        <span className="text-white">extends</span>
+        <span className="text-gray-100">StatelessWidget</span>
+        <span className="text-gray-300">{'{'}</span>
+      </div>
+      <div className="pl-4 space-y-1">
         <div className="flex items-center space-x-1">
-          <span className="text-white">override</span>
-          <span className="text-white">fun</span>
-          <span className="text-gray-200">onCreate</span>
-          <span className="text-gray-300">()</span>
-          <span className="text-gray-300">&nbsp;{'{'}</span>
+          <span className="text-gray-200">Widget</span>
+          <span className="text-white">build</span>
+          <span className="text-gray-300">(</span>
+          <span className="text-gray-100">BuildContext</span>
+          <span className="text-gray-300">ctx)</span>
+          <span className="text-gray-300">{'{'}</span>
         </div>
-        <div className="pl-4 space-y-1">
-          <div className="flex items-center space-x-1">
-            <span className="text-gray-200">super</span>
-            <span className="text-gray-300">.</span>
-            <span className="text-gray-200">onCreate</span>
-            <span className="text-gray-300">(savedInstanceState)</span>
-          </div>
-          <div className="flex items-center space-x-1">
-            <span className="text-gray-200">setContentView</span>
-            <span className="text-gray-300">(</span>
-            <span className="text-gray-100">R.layout.main</span>
-            <span className="text-gray-300">)</span>
-          </div>
+        <div className="pl-4 flex items-center space-x-1">
+          <span className="text-white">return</span>
+          <span className="text-gray-200">MaterialApp</span>
+          <span className="text-gray-300">(</span>
+          <span className="text-gray-100">home:</span>
+          <span className="text-gray-200">HomeScreen</span>
+          <span className="text-gray-300">());</span>
         </div>
-        <div className="text-gray-300 pl-2">{'}'}</div>
+        <div className="text-gray-300">{'}'}</div>
       </div>
       <div className="text-gray-300">{'}'}</div>
     </div>
