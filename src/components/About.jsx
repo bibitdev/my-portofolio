@@ -33,19 +33,19 @@ const TILT_ANIMATION_CONFIG = {
  * Variasi animasi fade in dari bawah dengan blur effect
  */
 const fadeInUpVariant = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     y: 80,
     scale: 0.9,
     filter: "blur(4px)"
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     scale: 1,
     filter: "blur(0px)",
-    transition: { 
-      duration: 0.9, 
+    transition: {
+      duration: 0.9,
       ease: [0.25, 0.46, 0.45, 0.94],
       staggerChildren: 0.1
     }
@@ -56,19 +56,19 @@ const fadeInUpVariant = {
  * Variasi animasi fade in dari kiri
  */
 const fadeInLeftVariant = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     x: -80,
     scale: 0.9,
     filter: "blur(4px)"
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     scale: 1,
     filter: "blur(0px)",
-    transition: { 
-      duration: 0.9, 
+    transition: {
+      duration: 0.9,
       ease: [0.25, 0.46, 0.45, 0.94],
       delay: 0.2
     }
@@ -79,19 +79,19 @@ const fadeInLeftVariant = {
  * Variasi animasi fade in dari kanan
  */
 const fadeInRightVariant = {
-  hidden: { 
-    opacity: 0, 
+  hidden: {
+    opacity: 0,
     x: 80,
     scale: 0.9,
     filter: "blur(4px)"
   },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     x: 0,
     scale: 1,
     filter: "blur(0px)",
-    transition: { 
-      duration: 0.9, 
+    transition: {
+      duration: 0.9,
       ease: [0.25, 0.46, 0.45, 0.94],
       delay: 0.3
     }
@@ -145,7 +145,7 @@ const easeInOutCubic = (x) =>
 
 // ==================== PROFILE CARD COMPONENT ====================
 const ProfileCardComponent = ({
-  avatarUrl = "/images/spider.jpg",
+  avatarUrl = "/images/profil.jpg",
   behindGradient,
   innerGradient,
   showBehindGradient = true,
@@ -389,8 +389,8 @@ const ProfileCardComponent = ({
         ...cardCustomStyles
       }}
     >
-      <section 
-        ref={cardRef} 
+      <section
+        ref={cardRef}
         className="relative w-full h-full cursor-pointer transition-transform duration-300 ease-out"
         style={{
           transform: 'rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg))',
@@ -398,7 +398,7 @@ const ProfileCardComponent = ({
         }}
       >
         {/* Background gradient layer untuk efek behind */}
-        <div 
+        <div
           className="absolute inset-0 rounded-3xl opacity-90"
           style={{
             background: 'var(--behind-gradient)',
@@ -406,13 +406,13 @@ const ProfileCardComponent = ({
             transform: 'translateZ(-10px)',
           }}
         />
-        
+
         {/* Main card container */}
-        <div 
+        <div
           className="relative w-full h-full rounded-3xl border border-gray-500/50 backdrop-blur-md overflow-hidden bg-gradient-to-b from-gray-900/90 to-black/95"
         >
           {/* Shine effect yang mengikuti posisi pointer */}
-          <div 
+          <div
             className="absolute inset-0 opacity-20 pointer-events-none"
             style={{
               background: `radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), 
@@ -421,7 +421,7 @@ const ProfileCardComponent = ({
                            transparent 50%)`,
             }}
           />
-          
+
           {/* Content area */}
           <div className="relative z-10 p-8 h-full flex flex-col items-center">
             {/* Header section dengan nama dan title */}
@@ -429,7 +429,7 @@ const ProfileCardComponent = ({
               <h3 className="text-3xl font-light text-white mb-2">{name}</h3>
               <p className="text-lg text-gray-300">{title}</p>
             </div>
-            
+
             {/* Avatar utama - dipusatkan dan diperbesar */}
             <div className="flex-1 flex items-center justify-center mb-6">
               <img
@@ -442,7 +442,7 @@ const ProfileCardComponent = ({
                 }}
               />
             </div>
-            
+
             {/* Bottom section dengan user info dan tombol contact */}
             {showUserInfo && (
               <div className="w-full">
@@ -461,7 +461,7 @@ const ProfileCardComponent = ({
                         <div className="text-gray-300 text-xs">{status}</div>
                       </div>
                     </div>
-                    
+
                     <button
                       className="bg-gray-700/70 hover:bg-gray-600/70 rounded-lg px-4 py-2 text-white text-sm font-medium transition-all duration-200"
                       onClick={handleContactButtonClick}
@@ -490,7 +490,7 @@ const ProfileCard = React.memo(ProfileCardComponent);
 const useScrollTriggeredAnimation = (threshold = 0.2) => {
   const elementRef = useRef(null);
   const animationControls = useAnimation();
-  const isElementInView = useInView(elementRef, { 
+  const isElementInView = useInView(elementRef, {
     threshold: threshold,
     once: false,
     margin: "-100px 0px"
@@ -504,10 +504,10 @@ const useScrollTriggeredAnimation = (threshold = 0.2) => {
     }
   }, [animationControls, isElementInView]);
 
-  return { 
-    ref: elementRef, 
-    controls: animationControls, 
-    inView: isElementInView 
+  return {
+    ref: elementRef,
+    controls: animationControls,
+    inView: isElementInView
   };
 };
 
@@ -537,11 +537,11 @@ const About = () => {
   const scrollToContactSection = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      contactSection.scrollIntoView({ 
+      contactSection.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-      
+
       // Optional: Highlight section contact setelah scroll
       setTimeout(() => {
         contactSection.classList.add('highlight-section');
@@ -556,14 +556,14 @@ const About = () => {
     <div id="about" className="min-h-screen bg-gradient-to-br from-black via-gray-900/30 to-black px-8 md:px-16 py-16 lg:py-24 pt-24">
       <div className="max-w-7xl mx-auto">
         {/* Header Section dengan animated title */}
-        <motion.div 
+        <motion.div
           ref={headerScrollAnimation.ref}
           className="text-center mb-16"
           initial="hidden"
           animate={headerScrollAnimation.controls}
           variants={fadeInUpVariant}
         >
-          <motion.h1 
+          <motion.h1
             className="text-7xl lg:text-8xl font-bold mb-4"
             variants={fadeInUpVariant}
           >
@@ -571,7 +571,7 @@ const About = () => {
               About Me
             </span>
           </motion.h1>
-          <motion.div 
+          <motion.div
             className="flex items-center justify-center space-x-2 text-gray-300 text-lg"
             variants={fadeInUpVariant}
           >
@@ -583,7 +583,7 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Content dengan description dan call-to-action */}
-          <motion.div 
+          <motion.div
             ref={contentScrollAnimation.ref}
             className="space-y-8"
             initial="hidden"
@@ -591,7 +591,7 @@ const About = () => {
             variants={staggerContainerVariant}
           >
             <motion.div variants={fadeInLeftVariant}>
-              <motion.h2 
+              <motion.h2
                 className="text-4xl lg:text-5xl font-bold text-white mb-6"
                 variants={fadeInLeftVariant}
               >
@@ -600,8 +600,8 @@ const About = () => {
                   Bibit Raikhan Azzaki
                 </span>
               </motion.h2>
-              
-              <motion.p 
+
+              <motion.p
                 className="text-gray-300 text-lg leading-relaxed mb-8"
                 variants={fadeInLeftVariant}
               >
@@ -611,17 +611,17 @@ const About = () => {
               </motion.p>
 
               {/* Quote section dengan animasi icon */}
-              <motion.div 
+              <motion.div
                 className="bg-gradient-to-r from-gray-900/40 to-black/40 border border-gray-600/40 rounded-2xl p-6 mb-8 backdrop-blur-sm w-fit"
                 variants={fadeInLeftVariant}
-                whileHover={{ 
+                whileHover={{
                   scale: 1.02,
                   boxShadow: "0 20px 40px rgba(255, 255, 255, 0.1)"
                 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <p className="text-gray-200 italic text-lg flex items-center whitespace-nowrap">
-                  <motion.span 
+                  <motion.span
                     animate={{ rotate: [0, 15, -15, 0] }}
                     transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
                   >
@@ -632,15 +632,15 @@ const About = () => {
               </motion.div>
 
               {/* Download CV Button */}
-              <motion.div 
+              <motion.div
                 className="flex justify-center sm:justify-start"
                 variants={fadeInLeftVariant}
               >
-                <motion.button 
+                <motion.button
                   onClick={handleDownloadCV}
                   className="flex items-center justify-center px-8 py-4 bg-white hover:bg-gray-200 rounded-full text-black font-semibold transition-all hover:scale-105 shadow-lg shadow-white/25"
                   variants={fadeInLeftVariant}
-                  whileHover={{ 
+                  whileHover={{
                     scale: 1.05,
                     boxShadow: "0 20px 40px rgba(255, 255, 255, 0.3)"
                   }}
@@ -659,26 +659,26 @@ const About = () => {
           </motion.div>
 
           {/* Right Side - Interactive ProfileCard */}
-          <motion.div 
+          <motion.div
             ref={cardScrollAnimation.ref}
             className="flex justify-center lg:justify-end"
             initial="hidden"
             animate={cardScrollAnimation.controls}
             variants={fadeInRightVariant}
           >
-            <motion.div 
+            <motion.div
               className="w-80 h-96 lg:w-96 lg:h-[500px] relative flex items-center justify-center"
               variants={fadeInRightVariant}
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
-              <ProfileCard 
+              <ProfileCard
                 name="Bibit Raikhan Azzaki"
                 title="Full Stack Developer"
                 handle="bibitdev"
                 status="Online"
                 contactText="Contact Me"
-                avatarUrl="/images/spider.jpg"
+                avatarUrl="/images/profil.jpg"
                 showUserInfo={true}
                 enableTilt={true}
                 onContactClick={scrollToContactSection}
@@ -734,7 +734,7 @@ const About = () => {
               delay: 3,
             }}
           />
-          
+
           {/* Additional floating particles untuk efek lebih dinamis */}
           <motion.div
             className="absolute top-1/3 left-1/4 w-1 h-1 bg-gray-300/50 rounded-full blur-sm"

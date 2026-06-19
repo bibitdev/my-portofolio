@@ -410,6 +410,30 @@ const PROJECT_DATA = [
     githubStats: { stars: 18, forks: 6 },
     previewImage: "/images/projects/hayak.png",
     imageContain: true
+  },
+  {
+    id: 4,
+    title: "KSP — Koperasi Simpan Pinjam",
+    description: "A comprehensive cooperative savings and loan management system built for Koperasi Dwi Gayatri Reswara Jaya. Handles member registration, savings deposits & withdrawals, loan applications with installment tracking, and generates detailed financial reports for cooperative administrators.",
+    technologies: ["Laravel", "MySQL", "Bootstrap"],
+    category: "Web",
+    repositoryUrl: "https://github.com/bibitdev",
+    isFeatured: true,
+    githubStats: { stars: 12, forks: 3 },
+    previewImage: "/images/projects/ksp.png",
+    imageContain: true
+  },
+  {
+    id: 5,
+    title: "Tetap Usaha",
+    description: "A modern point-of-sale and inventory management web application built for Toko Elektronik Tetap Usaha. Features product catalog management, transaction processing, stock monitoring, and sales reporting — all crafted with a responsive React interface.",
+    technologies: ["React", "JavaScript", "Tailwind CSS"],
+    category: "Web",
+    repositoryUrl: "https://github.com/bibitdev",
+    isFeatured: false,
+    githubStats: { stars: 9, forks: 2 },
+    previewImage: "/images/projects/tetap_usaha.png",
+    imageContain: true
   }
 ];
 
