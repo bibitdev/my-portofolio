@@ -434,6 +434,18 @@ const PROJECT_DATA = [
     githubStats: { stars: 9, forks: 2 },
     previewImage: "/images/projects/tetap_usaha.png",
     imageContain: true
+  },
+  {
+    id: 6,
+    title: "Simpro",
+    description: "A web-based system for submitting and managing development proposals for the Banjarnegara Regency Government. Streamlines the proposal submission process, tracking, and administration for regional development planning.",
+    technologies: ["React", "Supabase"],
+    category: "Web",
+    repositoryUrl: "",
+    isFeatured: true,
+    githubStats: { stars: 0, forks: 0 },
+    previewImage: "/images/projects/simpro.png",
+    imageContain: true
   }
 ];
 
@@ -759,22 +771,24 @@ const PortfolioSection = () => {
               </motion.h3>
 
               {/* GitHub statistics display */}
-              <div className="flex items-center space-x-3 text-gray-400 text-sm">
-                <motion.div
-                  className="flex items-center space-x-1"
-                  whileHover={{ scale: 1.1, color: "#d1d5db" }}
-                >
-                  <Star className="w-3 h-3" />
-                  <span>{project.githubStats.stars}</span>
-                </motion.div>
-                <motion.div
-                  className="flex items-center space-x-1"
-                  whileHover={{ scale: 1.1, color: "#d1d5db" }}
-                >
-                  <GitFork className="w-3 h-3" />
-                  <span>{project.githubStats.forks}</span>
-                </motion.div>
-              </div>
+              {project.repositoryUrl && (
+                <div className="flex items-center space-x-3 text-gray-400 text-sm">
+                  <motion.div
+                    className="flex items-center space-x-1"
+                    whileHover={{ scale: 1.1, color: "#d1d5db" }}
+                  >
+                    <Star className="w-3 h-3" />
+                    <span>{project.githubStats.stars}</span>
+                  </motion.div>
+                  <motion.div
+                    className="flex items-center space-x-1"
+                    whileHover={{ scale: 1.1, color: "#d1d5db" }}
+                  >
+                    <GitFork className="w-3 h-3" />
+                    <span>{project.githubStats.forks}</span>
+                  </motion.div>
+                </div>
+              )}
             </div>
 
             <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-2">
@@ -803,20 +817,27 @@ const PortfolioSection = () => {
 
             {/* GitHub repository link */}
             <div className="flex justify-center">
-              <motion.a
-                href={project.repositoryUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r from-white/10 to-gray-200/10 hover:from-white/20 hover:to-gray-200/20 border border-white/30 text-white rounded-full text-sm font-medium transition-all"
-                whileHover={{
-                  scale: 1.02,
-                  boxShadow: "0 10px 20px rgba(255, 255, 255, 0.1)"
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <Github className="w-3 h-3 mr-2" />
-                View on GitHub
-              </motion.a>
+              {project.repositoryUrl ? (
+                <motion.a
+                  href={project.repositoryUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full flex items-center justify-center px-4 py-2 bg-gradient-to-r from-white/10 to-gray-200/10 hover:from-white/20 hover:to-gray-200/20 border border-white/30 text-white rounded-full text-sm font-medium transition-all"
+                  whileHover={{
+                    scale: 1.02,
+                    boxShadow: "0 10px 20px rgba(255, 255, 255, 0.1)"
+                  }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <Github className="w-3 h-3 mr-2" />
+                  View on GitHub
+                </motion.a>
+              ) : (
+                <div className="w-full flex items-center justify-center px-4 py-2 bg-slate-700/30 border border-slate-600/30 text-gray-400 rounded-full text-sm font-medium">
+                  <Github className="w-3 h-3 mr-2" />
+                  Private Repository
+                </div>
+              )}
             </div>
           </div>
         </motion.div>
